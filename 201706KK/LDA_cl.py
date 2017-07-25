@@ -61,7 +61,7 @@ def main():
     stops = set(nltk.corpus.stopwords.words("english"))
     stops.add('yes')
 
-    with open("extra_stopwords.txt", 'r') as sw:
+    with open("stopwords/extra_stopwords.txt", 'r') as sw:
         extra_stops = sw.readlines()
         extra_stops = [i.strip('\n') for i in extra_stops]
 
