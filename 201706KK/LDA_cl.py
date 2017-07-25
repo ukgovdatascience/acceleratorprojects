@@ -14,11 +14,22 @@ import re
 from re import sub
 import sys
 
+"""
+Creates LDAVis from command line.
 
-vis_file_name = sys.argv[1]
+Expects two arguments:
+
+    * input csv file (containing corpus)
+    * output file name (Html visualisation)
+    * number of topics
+
+"""
+
+input_file = sys.argv[1]
+vis_file_name = sys.argv[2]
 
 if not None:
-    num_topics = sys.argv[2]
+    num_topics = sys.argv[3]
 else:
     num_topics = 10
 
@@ -33,20 +44,21 @@ def main():
     # and then:
     print(pd.__version__)
 
-
+    # Optionally use a tokenizer
 
     #tokenizer = RegexpTokenizer(r'\w+')
 
-
-
     # Create p_stemmer of class PorterStemmer
+
     p_stemmer = PorterStemmer()
 
-    df = pd.read_csv("filename.csv")
-    df.dtypes
+    # Read data into pandas dataframe
 
-
-    stops = set(nltk.corpus.stopwords.words("english")) # Creating a set of Stopwords
+    df = pd.read_csv(filename)
+ 
+    # Creating a set of Stopwords
+    
+    stops = set(nltk.corpus.stopwords.words("english"))
     stops.add('yes')
 
     with open("extra_stopwords.txt", 'r') as sw:
