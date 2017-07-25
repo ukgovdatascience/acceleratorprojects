@@ -54,7 +54,7 @@ def main():
 
     # Read data into pandas dataframe
 
-    df = pd.read_csv(filename)
+    df = pd.read_csv(input_file)
  
     # Creating a set of Stopwords
     
